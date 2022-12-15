@@ -15,11 +15,11 @@ def run_analysis(book_list):
     # print('')
     # print("*******************************************************************")
     # print('')
-    analysis_two(books)
+    # analysis_two(books)
     # print('')
     # print("*******************************************************************")
     # print('')
-    # analysis_three(books)
+    analysis_three(books)
 
 
 def create_book_list(data_list):
@@ -52,19 +52,21 @@ def create_book_list(data_list):
 #     books_2018 = list (filter(lambda book: book.year == 2018, book_list))
 #     lowest_number_of_reviews = min(books_2018, key=lambda book: book.number_of_reviews)
 #     print (f"The book with the lowest number in reviews in 2018 is: {lowest_number_of_reviews.name} with {lowest_number_of_reviews.number_of_reviews} reviews!")
-def analysis_two(book_list):
-    print("Analysis of which genre (fiction or non-fiction) has appeared the most in the top 50's list")
-    top_fifties_list = list (filter(lambda book: book.id  <= 50, book_list))
-    max_genre_type = max(top_fifties_list, key=lambda book: book.genre)
-    max_genre_frequency = list(filter(lambda book: book.genre == max_genre_type, top_fifties_list))
+# 
+# def analysis_two(book_list):
+#     print("Analysis of which genre (fiction or non-fiction) has appeared the most in the top 50's list")
+#     top_fifties_list = list (filter(lambda book: book.id  <= 50, book_list))
+#     max_genre_type = max (top_fifties_list, key=lambda book: book.genre)
+#     max_genre_frequency = list (filter(lambda book: book.genre == str(max_genre_type.genre), top_fifties_list))
     
-    print (f"Top Genre: {max_genre_type.genre}.")  
-    print (f" Frequency: {len(max_genre_frequency)}") 
+#     print (f"Top Genre: {max_genre_type.genre}.  Frequency: {len(max_genre_frequency)}") 
     
     
-# def analysis_three(book_list):
-#     print("Analysis of which book has appeared the most in the top 50's list, and how many times it has appeared")
-
+def analysis_three(book_list):
+    print("Analysis of which book has appeared the most in the top 50's list, and how many times it has appeared")
+    top_fifties_list = list (filter(lambda book: book.id <= 50, book_list))
+    most_appeared_title = max (top_fifties_list, key=lambda book: book.name)
+    print (most_appeared_title.name)
 
 # # BONUS USER STORIES:
 
