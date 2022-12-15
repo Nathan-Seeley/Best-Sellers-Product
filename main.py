@@ -66,7 +66,8 @@ def analysis_three(book_list):
     print("Analysis of which book has appeared the most in the top 50's list, and how many times it has appeared")
     top_fifties_list = list (filter(lambda book: book.id <= 50, book_list))
     most_appeared_title = max (top_fifties_list, key=lambda book: book.name)
-    print (most_appeared_title.name)
+    times_appeared = list (filter(lambda book: book.name == str(most_appeared_title, top_fifties_list)))
+    print (f"Book Title: {most_appeared_title.name}.  Frequency: {len(times_appeared)}")
 
 # # BONUS USER STORIES:
 
