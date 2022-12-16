@@ -4,9 +4,9 @@ from book import Book
 
 def run_analysis(book_list):
     books = create_book_list(book_list)
-    print('')
-    print("*******************************************************************")
-    print('')
+    # print('')
+    # print("*******************************************************************")
+    # print('')
     # example_analysis(books)
     # print('')
     # print("*******************************************************************")
@@ -15,11 +15,16 @@ def run_analysis(book_list):
     # print('')
     # print("*******************************************************************")
     # print('')
-    # analysis_two(books)
+    analysis_two(books)
     # print('')
     # print("*******************************************************************")
     # print('')
-    analysis_three(books)
+    # analysis_three(books)
+    # print('')
+    # print("*******************************************************************")
+    # print('')
+    # bonus_analysis_one(books)
+
 
 
 def create_book_list(data_list):
@@ -34,17 +39,16 @@ def create_book_list(data_list):
 
 
 # def example_analysis(book_list):
-#     print("Analysis of which book had the highest price in 2016")
-#     # Find all books from 2016
-#     # Use a Lambda filter function to find books who have a year of 2016
-#     # Converting to a list, and saving as variable books_2016
-#     books_2016 = list(filter(lambda book: book.year == 2016, book_list))
-#     # Calculating the maximum price, and saving that book as highest_cost_book
-#     # Using max(), with Lambda function
-#     highest_cost_book = max(books_2016, key=lambda book: book.price)
-#     # Print that book's name & price to terminal
-#     print(
-#         f"The most expensive book in 2016 was {highest_cost_book.name} with a price of {highest_cost_book.price}")
+    # print("Analysis of which book had the highest price in 2016")
+    # Find all books from 2016
+    # Use a Lambda filter function to find books who have a year of 2016
+    # Converting to a list, and saving as variable books_2016
+    # books_2016 = list(filter(lambda book: book.year == 2016, book_list))
+    # Calculating the maximum price, and saving that book as highest_cost_books
+    # Using max(), with Lambda function
+    # highest_cost_book = max(books_2016, key=lambda book: book.price)
+    # Print that book's name & price to terminal
+    # print(f"The most expensive book in 2016 was {highest_cost_book.name} with a price of {highest_cost_book.price}")
 
 
 # def analysis_one(book_list):
@@ -52,28 +56,43 @@ def create_book_list(data_list):
 #     books_2018 = list (filter(lambda book: book.year == 2018, book_list))
 #     lowest_number_of_reviews = min(books_2018, key=lambda book: book.number_of_reviews)
 #     print (f"The book with the lowest number in reviews in 2018 is: {lowest_number_of_reviews.name} with {lowest_number_of_reviews.number_of_reviews} reviews!")
-# 
-# def analysis_two(book_list):
-#     print("Analysis of which genre (fiction or non-fiction) has appeared the most in the top 50's list")
-#     top_fifties_list = list (filter(lambda book: book.id  <= 50, book_list))
-#     max_genre_type = max (top_fifties_list, key=lambda book: book.genre)
-#     max_genre_frequency = list (filter(lambda book: book.genre == str(max_genre_type.genre), top_fifties_list))
+# # 
+def analysis_two(book_list):
+    print("Analysis of which genre (fiction or non-fiction) has appeared the most in the top 50's list")
+    book_genre_list =[book.genre for book in book_list]
+    most_genre_appearances = {"genre": "",
+                              "count": 0}
+    for genre in book_genre_list:
+        matching_genre = list (filter(lambda book: book.genre == genre, book_list))
+        matching_frequency = len(matching_genre)
+        if matching_frequency > most_genre_appearances ["count"]:
+            most_genre_appearances ["genre"] = genre
+            most_genre_appearances ["count"] = matching_frequency
     
-#     print (f"Top Genre: {max_genre_type.genre}.  Frequency: {len(max_genre_frequency)}") 
+    # print (f"Top Genre: {most_genre_appearances ['genre']}.  Frequency: {most_genre_appearances ['count']}") 
     
-    
-def analysis_three(book_list):
-    print("Analysis of which book has appeared the most in the top 50's list, and how many times it has appeared")
-    top_fifties_list = list (filter(lambda book: book.id <= 50, book_list))
-    most_appeared_title = max (top_fifties_list, key=lambda book: book.name)
-    times_appeared = list (filter(lambda book: book.name == str(most_appeared_title, top_fifties_list)))
-    print (f"Book Title: {most_appeared_title.name}.  Frequency: {len(times_appeared)}")
+    # def analysis_three(book_list):
+#     print("Analysis of which book has appeared the most in the top 50's list, and how many times it has appeared")
+#     book_name_list = [book.name for book in book_list]
+#     unique_book_names = set (book_name_list)
+#     most_book_appearances = {"name": "",
+#                             "count" : 0}
+#     for book_name in unique_book_names:
+#         matching_books = list (filter(lambda book: book.name == book_name, book_list ))
+#         matching_frequency = len(matching_books) 
+#         if matching_frequency > most_book_appearances ["count"]:
+#             most_book_appearances ["name"] = book_name 
+#             most_book_appearances ["count"] = matching_frequency                       
+#     
+
+#     print (f"Book Title: {most_book_appearances ['name']}.  Frequency: {most_book_appearances ['count']}")
 
 # # BONUS USER STORIES:
 
 
 # def bonus_analysis_one(book_list):
 #     print("Analysis of which author has shown up on the top 50's list the most (Distinct books only!)")
+
 
 
 # def bonus_analysis_two(book_list):

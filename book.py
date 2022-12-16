@@ -8,7 +8,6 @@
 # genre
 class Book:
     def __init__ (self, book_dictionary ):
-        self.id = book_dictionary ['id']
         self.name = book_dictionary ['name']
         self.author = book_dictionary ['author']
         self.user_rating = book_dictionary ['user_rating']
@@ -16,5 +15,3 @@ class Book:
         self.price = book_dictionary ['price']
         self.year = book_dictionary ['year']
         self.genre = book_dictionary ['genre']
-    
-
