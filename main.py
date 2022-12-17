@@ -23,11 +23,11 @@ def run_analysis(book_list):
     # print('')
     # print("*******************************************************************")
     # print('')
-    # bonus_analysis_one(books)
+    bonus_analysis_one(books)
     # print('')
     # print("*******************************************************************")
     # print('')
-    bouns_analysis_two(books)
+    # bouns_analysis_two(books)
     # print('')
     # print("*******************************************************************")
     # print('')
@@ -97,23 +97,24 @@ def create_book_list(data_list):
 # # BONUS USER STORIES:
 
 
-# def bonus_analysis_one(book_list):
-#     print("Analysis of which author has shown up on the top 50's list the most (Distinct books only!)")
-#     author_name_list = [book.author for book in book_list]
-#     distinct_author = set (author_name_list)
-#     most_author_book_appearances = {"author": "",
-#                                     "count": 0,}
-#     for author in distinct_author:
-#         matching_author = list (filter(lambda book: book.author == author, book_list))
-#         author_frequency = len(matching_author)
-#         if author_frequency > most_author_book_appearances ["count"]:
-#             most_author_book_appearances ["author"] = author
-#             most_author_book_appearances ["count"] = author_frequency
+def bonus_analysis_one(book_list):
+    print("Analysis of which author has shown up on the top 50's list the most (Distinct books only!)")
+    author_name_list = [book.author for book in book_list]
+    book_name_list = [book.name for book in book_list]
+    distinct_author_book = set (author_name_list + book_name_list)
+    most_author_book_appearances = {"author": "",
+                                    "count": 0,}
+    for author in distinct_author_book:
+        matching_author = list (filter(lambda book: book.author == author, book_list))
+        author_frequency = len(matching_author)
+        if author_frequency > most_author_book_appearances ["count"]:
+            most_author_book_appearances ["author"] = author
+            most_author_book_appearances ["count"] = author_frequency
 
-#     print(f"The author who has appeared the most for distinct books is {most_author_book_appearances ['author']} with {most_author_book_appearances ['count']} books!")
+    print(f"The author who has appeared the most for distinct books is {most_author_book_appearances ['author']} with {most_author_book_appearances ['count']} books!")
 
-def bonus_analysis_two(book_list):
-    print("Analysis of the top book for each year, based on the book's user ratings and number of reviews")
+# def bonus_analysis_two(book_list):
+#     print("Analysis of the top book for each year, based on the book's user ratings and number of reviews")
 
 
 
