@@ -15,7 +15,7 @@ def run_analysis(book_list):
     # print('')
     # print("*******************************************************************")
     # print('')
-    analysis_two(books)
+    # analysis_two(books)
     # print('')
     # print("*******************************************************************")
     # print('')
@@ -24,6 +24,14 @@ def run_analysis(book_list):
     # print("*******************************************************************")
     # print('')
     # bonus_analysis_one(books)
+    # print('')
+    # print("*******************************************************************")
+    # print('')
+    bouns_analysis_two(books)
+    # print('')
+    # print("*******************************************************************")
+    # print('')
+
 
 
 
@@ -57,34 +65,33 @@ def create_book_list(data_list):
 #     lowest_number_of_reviews = min(books_2018, key=lambda book: book.number_of_reviews)
 #     print (f"The book with the lowest number in reviews in 2018 is: {lowest_number_of_reviews.name} with {lowest_number_of_reviews.number_of_reviews} reviews!")
 # # 
-def analysis_two(book_list):
-    print("Analysis of which genre (fiction or non-fiction) has appeared the most in the top 50's list")
-    book_genre_list =[book.genre for book in book_list]
-    most_genre_appearances = {"genre": "",
-                              "count": 0}
-    for genre in book_genre_list:
-        matching_genre = list (filter(lambda book: book.genre == genre, book_list))
-        matching_frequency = len(matching_genre)
-        if matching_frequency > most_genre_appearances ["count"]:
-            most_genre_appearances ["genre"] = genre
-            most_genre_appearances ["count"] = matching_frequency
+# def analysis_two(book_list):
+#     print("Analysis of which genre (fiction or non-fiction) has appeared the most in the top 50's list")
+#     book_genre_list =[book.genre for book in book_list]
+#     most_genre_appearances = {"genre": "",
+#                               "count": 0}
+#     for genre in book_genre_list:
+#         matching_genre = list (filter(lambda book: book.genre == genre, book_list))
+#         matching_frequency = len(matching_genre)
+#         if matching_frequency > most_genre_appearances ["count"]:
+#             most_genre_appearances ["genre"] = genre
+#             most_genre_appearances ["count"] = matching_frequency
     
     # print (f"Top Genre: {most_genre_appearances ['genre']}.  Frequency: {most_genre_appearances ['count']}") 
     
     # def analysis_three(book_list):
 #     print("Analysis of which book has appeared the most in the top 50's list, and how many times it has appeared")
 #     book_name_list = [book.name for book in book_list]
-#     unique_book_names = set (book_name_list)
+#     distinct_book_names = set (book_name_list)
 #     most_book_appearances = {"name": "",
 #                             "count" : 0}
-#     for book_name in unique_book_names:
+#     for book_name in distinct_book_names:
 #         matching_books = list (filter(lambda book: book.name == book_name, book_list ))
-#         matching_frequency = len(matching_books) 
-#         if matching_frequency > most_book_appearances ["count"]:
+#         book_frequency = len(matching_books) 
+#         if book_frequency > most_book_appearances ["count"]:
 #             most_book_appearances ["name"] = book_name 
-#             most_book_appearances ["count"] = matching_frequency                       
+#             most_book_appearances ["count"] = book_frequency                       
 #     
-
 #     print (f"Book Title: {most_book_appearances ['name']}.  Frequency: {most_book_appearances ['count']}")
 
 # # BONUS USER STORIES:
@@ -92,11 +99,22 @@ def analysis_two(book_list):
 
 # def bonus_analysis_one(book_list):
 #     print("Analysis of which author has shown up on the top 50's list the most (Distinct books only!)")
+#     author_name_list = [book.author for book in book_list]
+#     distinct_author = set (author_name_list)
+#     most_author_book_appearances = {"author": "",
+#                                     "count": 0,}
+#     for author in distinct_author:
+#         matching_author = list (filter(lambda book: book.author == author, book_list))
+#         author_frequency = len(matching_author)
+#         if author_frequency > most_author_book_appearances ["count"]:
+#             most_author_book_appearances ["author"] = author
+#             most_author_book_appearances ["count"] = author_frequency
 
+#     print(f"The author who has appeared the most for distinct books is {most_author_book_appearances ['author']} with {most_author_book_appearances ['count']} books!")
 
+def bonus_analysis_two(book_list):
+    print("Analysis of the top book for each year, based on the book's user ratings and number of reviews")
 
-# def bonus_analysis_two(book_list):
-#     print("Analysis of the top book for each year, based on the book's user ratings and number of reviews")
 
 
 # def bonus_analysis_three(book_list):
