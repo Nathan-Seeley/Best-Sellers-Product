@@ -4,30 +4,30 @@ from book import Book
 
 def run_analysis(book_list):
     books = create_book_list(book_list)
-    print('')
-    print("*******************************************************************")
-    print('')
-    example_analysis(books)
-    print('')
-    print("*******************************************************************")
-    print('')
-    analysis_one(books)
-    print('')
-    print("*******************************************************************")
-    print('')
-    analysis_two(books)
-    print('')
-    print("*******************************************************************")
-    print('')
-    analysis_three(books)
-    print('')
-    print("*******************************************************************")
-    print('')
-    bonus_analysis_one(books)
     # print('')
     # print("*******************************************************************")
     # print('')
-    # bonus_analysis_two(books)
+    # example_analysis(books)
+    # print('')
+    # print("*******************************************************************")
+    # print('')
+    # analysis_one(books)
+    # print('')
+    # print("*******************************************************************")
+    # print('')
+    # analysis_two(books)
+    # print('')
+    # print("*******************************************************************")
+    # print('')
+    # analysis_three(books)
+    # print('')
+    # print("*******************************************************************")
+    # print('')
+    # bonus_analysis_one(books)
+    # print('')
+    # print("*******************************************************************")
+    # print('')
+    bonus_analysis_two(books)
     # print('')
     # print("*******************************************************************")
     # print('')
@@ -45,7 +45,7 @@ def create_book_list(data_list):
     return book_list
 
 
-def example_analysis(book_list):
+# def example_analysis(book_list):
     print("Analysis of which book had the highest price in 2016")
     # Find all books from 2016
     # Use a Lambda filter function to find books who have a year of 2016
@@ -57,13 +57,13 @@ def example_analysis(book_list):
     # Print that book's name & price to terminal
     print(f"The most expensive book in 2016 was {highest_cost_book.name} with a price of {highest_cost_book.price}")
 
-def analysis_one(book_list):
+# def analysis_one(book_list):
     print("Analysis of which book had the lowest number of reviews in 2018")
     books_2018 = list (filter(lambda book: book.year == 2018, book_list))
     lowest_number_of_reviews = min(books_2018, key=lambda book: book.number_of_reviews)
     print (f"The book with the lowest number in reviews in 2018 is: {lowest_number_of_reviews.name} with {lowest_number_of_reviews.number_of_reviews} reviews!")
 
-def analysis_two(book_list):
+# def analysis_two(book_list):
     print("Analysis of which genre (fiction or non-fiction) has appeared the most in the top 50's list")
     book_genre_list =[book.genre for book in book_list]
     most_genre_appearances = {"genre": "",
@@ -77,7 +77,7 @@ def analysis_two(book_list):
     
     print (f"Top Genre: {most_genre_appearances ['genre']}.  Frequency: {most_genre_appearances ['count']}") 
     
-def analysis_three(book_list):
+# def analysis_three(book_list):
     print("Analysis of which book has appeared the most in the top 50's list, and how many times it has appeared")
     book_name_list = [book.name for book in book_list]
     distinct_book_names = set (book_name_list)
@@ -95,7 +95,7 @@ def analysis_three(book_list):
 # # BONUS USER STORIES:
 
 
-def bonus_analysis_one(book_list):
+# def bonus_analysis_one(book_list):
     print("Analysis of which author has shown up on the top 50's list the most (Distinct books only!)")
     author_name_list = [book.author for book in book_list]
     distinct_author = set (author_name_list)
@@ -104,19 +104,28 @@ def bonus_analysis_one(book_list):
     for author in distinct_author:
         matching_author = list (filter(lambda book: book.author == author, book_list))
         book_name_list = [book.name for book in matching_author]
-        distinct_book =set (book_name_list)
+        distinct_book = set (book_name_list)
         author_frequency = len(distinct_book)
         if author_frequency > most_author_appearances ["count"]:
             most_author_appearances ["author"] = author
             most_author_appearances ["count"] = author_frequency
 
-    print(f"The author who has appeared the most for distinct books is {most_author_appearances ['author']} with {most_author_appearances ['count']} books!")
+#     print(f"The author who has appeared the most for distinct books is {most_author_appearances ['author']} with {most_author_appearances ['count']} different books!")
 
 # def bonus_analysis_two (book_list):
 #     print("Analysis of the top book for each year, based on the book's user ratings and number of reviews")
-#     book_year_list = [book.year for book in book_list]
-#     distinct_year = set (book_year_list)
 
+#     user_rating_list = list(filter(lambda book: book.user_rating, book_list))
+#     sorted_user_rating = sorted(user_rating_list, key = lambda book: book.user_rating)
+    
+#     review_list = list(filter(lambda book: book.number_of_reviews, sorted_user_rating))
+#     sorted_review_list = (sorted(review_list, key = lambda book: book.number_of_reviews))
+    
+#     year_list = list(filter(lambda book: book.year, sorted_review_list))
+#     sorted_year_list = list(sorted(year_list, key = lambda book: book.year))
+#     for year in sorted_year_list:
+#         print(f"{year.year} {year.name}")
+    
 
 # def bonus_analysis_three(book_list):
 #     print("Analysis of which book has appeared the most consecutively on top 50's list")
